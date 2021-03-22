@@ -5,12 +5,8 @@ class UsersController < ApplicationController
   # before_action :get_track_parent, only: [:create, :destroy]
 
   # GET /users
-  # GET /users
-  # GET /users
-
   def index
     @select_user = User.where(id: params[:selected_user]).first || User.first
-
     @users = User.all
   end
 
