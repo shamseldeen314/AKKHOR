@@ -1,0 +1,2 @@
+class PerantsStudent < ApplicationRecord
+end

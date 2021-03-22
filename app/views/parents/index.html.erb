@@ -1,0 +1,100 @@
+<div class="dashboard-content-one">
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area">
+    <h3>Parents</h3>
+    <ul>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>All Parents</li>
+    </ul>
+  </div>
+  <!-- Breadcubs Area End Here -->
+  <!-- Teacher Table Area Start Here -->
+  <div class="card height-auto">
+    <div class="card-body">
+      <div class="heading-layout1">
+        <div class="item-title">
+          <h3>All Parents Data</h3>
+        </div>
+        <div class="dropdown">
+          <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">...</a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="#"><i class="fas fa-times text-orange-red"></i>Close</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+          </div>
+        </div>
+      </div>
+      <form class="mg-b-20">
+        <div class="row gutters-8">
+          <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
+            <input type="text" placeholder="Search by ID ..." class="form-control">
+          </div>
+          <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
+            <input type="text" placeholder="Search by Name ..." class="form-control">
+          </div>
+          <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
+            <input type="text" placeholder="Search by Phone ..." class="form-control">
+          </div>
+          <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
+            <button type="submit" class="fw-btn-fill btn-gradient-yellow">SEARCH</button>
+          </div>
+        </div>
+      </form>
+      <div class="table-responsive">
+        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+          <table class="table display data-table text-nowrap dataTable no-footer" id="DataTables_Table_0" role="grid">
+            <thead>
+              <tr role="row">
+                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Photo: activate to sort column ascending" style="width: 43px;"> Photo</th>
+                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width:110px;"> Code </th>
+                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width:110px;"> Name </th>
+                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Gender: activate to sort column ascending" style="width: 52px;"> Address </th>
+                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Occupation: activate to sort column ascending" style="width: 91px;"> Gender </th>
+                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Address: activate to sort column ascending" style="width: 134px;"> Religion </th>
+                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Phone: activate to sort column ascending" style="width: 101px;"> Phone </th>
+                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending" style="width: 167px;"> Email </th>
+                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending" style="width: 167px;"> Date_birth </th>
+                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending" style="width: 167px;"> National_Id </th>
+                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending" style="width: 167px;"> Job</th>
+                <th class="sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 48px;"></th>
+              </tr>
+            </thead>
+            <% Parent.all.each do |parent| %>
+              <tbody>
+                <tr role="row" class="odd">
+                  <td class="text-center"><a href="<%= parent_path(parent.id) %>"><img src="img/figure/student2.png" alt="student"></a></td>
+                  <td><%= parent.code %></td>
+                  <td><%= parent.name %></td>
+                  <td><%= parent.address %></td>
+                  <td><%= parent.gender %></td>
+                  <td><%= parent.religion %></td>
+                  <td><%= parent.phone %></td>
+                  <td><%= parent.email %></td>
+                  <td><%= parent.date_birth %></td>
+                  <td><%= parent.national_id %></td>
+                  <td><%= parent.job %></td>
+                  <td>
+                    <div class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="flaticon-more-button-of-three-dots"></span>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right">
+                        <i class="icon_edit fas fa-cogs  text-dark-pastel-green"></i><a class="dropdown-item edit" href="<%= edit_parent_path(parent.id) %>">Edit</a>
+                        <i class="icon_show far fa-eye  text-dark-pastel-green"></i><a class="dropdown-item edit" href="<%= parent_path(parent.id) %> %>">Show</a>
+                        <i class=" icon_delete far fa-trash-alt "></i><%= button_to "Delete", parent_path(parent.id), method: "delete",  class: "delete", data: { confirm: "Are you sure you want to delete?" } %>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><a class="paginate_button previous disabled" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous">Previous</a><span><a class="paginate_button current" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0">2</a></span><a class="paginate_button next" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0" id="DataTables_Table_0_next">Next</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Teacher Table Area End Here -->
+</div>

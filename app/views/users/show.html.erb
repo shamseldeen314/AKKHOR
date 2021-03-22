@@ -1,0 +1,13 @@
+<% if @user.role.name == "super_admin" %>
+  <%= render partial: "users/profile/super_admin" %>
+<% elsif  @user.role.name == "admin"   %>
+  <%= render partial: "users/profile/admin" %>
+<% elsif @user.role.name == "parent" %>
+  <%= render partial: "users/profile/parent" %>
+<% elsif @user.role.name == "teacher" %>
+  <%= render partial: "users/profile/teacher" %>
+<% elsif @user.role.name == "student" %>
+  <%= render partial: "users/profile/student" %>
+<% else %>
+  <%= render partial: "users/profile/default" %>
+<% end %>

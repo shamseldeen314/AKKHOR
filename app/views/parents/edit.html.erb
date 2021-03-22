@@ -1,0 +1,138 @@
+<div class="dashboard-content-one">
+<!-- Breadcubs Area Start Here -->
+<div class="breadcrumbs-area">
+  <h3>Parents</h3>
+  <ul>
+    <li>
+      <a href="index.html">Home</a>
+    </li>
+    <li>Adit Parents</li>
+  </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Add New Teacher Area Start Here -->
+<div class="card height-auto">
+  <div class="card-body">
+    <div class="heading-layout1">
+      <div class="item-title">
+        <h3>Adit Parents</h3>
+      </div>
+      <div class="dropdown">
+        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">...</a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="#"><i class="fas fa-times text-orange-red"></i>Close</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+        </div>
+      </div>
+    </div>
+
+  <%= form_with model: @parent do |f| %>
+      <div class="row">
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+          <%= f.label :code, " parent_Code" %>
+          <%= f.text_field :code, class: "form-control" %>
+           <% if @parent.errors.messages[:code].present? %>
+                      <% @parent.errors.messages[:code].each do |mass| %>
+                        <span class="valid-mass"><%= mass %></span>
+                      <% end %>
+                  <% end %>
+      </div>
+      <div class="col-xl-3 col-lg-6 col-12 form-group">
+          <%= f.label :name, " Name" %>
+          <%= f.text_field :name, required: true, class: "form-control" %>
+           <% if @parent.errors.messages[:name].present? %>
+                      <% @parent.errors.messages[:name].each do |mass| %>
+                        <span class="valid-mass"><%= mass %></span>
+                      <% end %>
+                  <% end %>
+      </div>
+      <div class="col-xl-3 col-lg-6 col-12 form-group">
+          <%= f.label :address, "Address" %>
+          <%= f.text_field :address, required: true, class: "form-control" %>
+           <% if @parent.errors.messages[:address].present? %>
+                      <% @parent.errors.messages[:address].each do |mass| %>
+                        <span class="valid-mass"><%= mass %></span>
+                      <% end %>
+                  <% end %>
+      </div>
+
+        <div class="col-xl-3 col-lg-6 col-12 form-group" >
+          <%= f.label :gender, "Gender" %>
+          <%= f.select("gender", Parent::GENDERS, {}, { class: "form-control select2 select2-container select2-container--default select2-container--below" }) %>
+      </div>
+      
+      <div class="col-xl-3 col-lg-6 col-12 form-group" >
+          <%= f.label :religion, "Religion" %>
+          <%= f.select("religion", Parent::RELIGIONS, {}, { class: "form-control select2 select2-container select2-container--default select2-container--below" }) %>
+      </div>
+      
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <%= f.label :phone, "Phone" %>
+            <%= f.text_field :phone, required: true, class: "form-control" %>
+              <% if @parent.errors.messages[:phone].present? %>
+                      <% @parent.errors.messages[:phone].each do |mass| %>
+                        <span class="valid-mass"><%= mass %></span>
+                      <% end %>
+                  <% end %>
+        </div>
+
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <%= f.label :email, "Email" %>
+            <%= f.text_field :email, required: true, class: "form-control" %>
+              <% if @parent.errors.messages[:email].present? %>
+                      <% @parent.errors.messages[:email].each do |mass| %>
+                        <span class="valid-mass"><%= mass %></span>
+                      <% end %>
+                  <% end %>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <%= f.label :date_birth, "Date_Birth" %>
+            <%= f.text_field :date_birth, required: true, class: "form-control" %>
+              <% if @parent.errors.messages[:date_birth].present? %>
+                      <% @parent.errors.messages[:date_birth].each do |mass| %>
+                        <span class="valid-mass"><%= mass %></span>
+                      <% end %>
+                  <% end %>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <%= f.label :national_id, "National_ID" %>
+            <%= f.text_field :national_id, required: true, class: "form-control" %>
+              <% if @parent.errors.messages[:national_id].present? %>
+                      <% @parent.errors.messages[:national_id].each do |mass| %>
+                        <span class="valid-mass"><%= mass %></span>
+                      <% end %>
+                  <% end %>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <%= f.label :job, "Job" %>
+            <%= f.text_field :job, required: true, class: "form-control" %>
+              <% if @parent.errors.messages[:job].present? %>
+                      <% @parent.errors.messages[:job].each do |mass| %>
+                        <span class="valid-mass"><%= mass %></span>
+                      <% end %>
+                  <% end %>
+        </div>
+        <div class="col-md-6 d-none d-xl-block">
+        </div>
+        <div class="col-lg-6 col-12 form-group">
+            <%= f.label :cv, "cv" %>
+                        <%= f.text_area :cv, required: true, class: "textarea form-control" %>
+                        
+
+        </div>
+        <div class="col-lg-6 col-12 form-group mg-t-30">
+          <label class="text-dark-medium">Upload Student Photo (150px X 150px)</label>
+          <input type="file" class="form-control-file">
+        </div>
+        <div class="col-12 form-group mg-t-8">
+          <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+          <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+        </div>
+      </div>
+      <% end %>
+  </div>
+</div>
+<!-- Add New Teacher Area End Here -->
+
+</div>

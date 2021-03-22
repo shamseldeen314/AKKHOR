@@ -1,0 +1,92 @@
+<div class="dashboard-content-one">
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area">
+    <h3>buses</h3>
+    <ul>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>All Library buses</li>
+    </ul>
+  </div>
+  <!-- Breadcubs Area End Here -->
+  <!-- Teacher Table Area Start Here -->
+  <div class="card height-auto">
+    <div class="card-body">
+      <div class="heading-layout1">
+        <div class="item-title">
+          <h3>All buses Data</h3>
+        </div>
+        <div class="dropdown">
+          <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">...</a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="#"><i class="fas fa-times text-orange-red"></i>Close</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+          </div>
+        </div>
+      </div>
+      <form class="mg-b-20">
+        <div class="row gutters-8">
+          <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
+            <input type="text" placeholder="Search by ID ..." class="form-control">
+          </div>
+          <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
+            <input type="text" placeholder="Search by Name ..." class="form-control">
+          </div>
+          <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
+            <input type="text" placeholder="Search by Phone ..." class="form-control">
+          </div>
+          <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
+            <button type="submit" class="fw-btn-fill btn-gradient-yellow">SEARCH</button>
+          </div>
+        </div>
+      </form>
+      <div class="table-responsive">
+        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+          <table class="table display data-table text-nowrap dataTable no-footer" id="DataTables_Table_0" role="grid">
+            <thead>
+              <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 119px; text-align:center;">ID</th>
+              <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Gender: activate to sort column ascending" >Driver</th>
+              <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Class: activate to sort column ascending" >Bus_Number</th>
+              <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 115px;  " >Bus model</th>
+              <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Section: activate to sort column ascending" >Color</th>
+              <th class="sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 48px;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% Bus.all.each do |bus| %>
+              <tr role="row" class="odd">
+                <td class="sorting_1">
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input">
+                    <label class="form-check-label"><%= bus.id %></label>
+                  </div>
+                </td>
+                <td><%= bus.driver %></td>
+                <td><%= bus.bus_number %></td>
+                <td><%= bus.model %></td>
+                <td><%= bus.color %></td>
+                <td>
+                  <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <span class="flaticon-more-button-of-three-dots"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <i class="icon_edit fas fa-cogs  text-dark-pastel-green"></i><a class="dropdown-item edit" href="<%= edit_bus_path(bus.id) %>">Edit</a>
+                      <i class="icon_show far fa-eye  text-dark-pastel-green"></i><a class="dropdown-item edit" href="<%= bus_path(bus.id) %> %>">Show</a>
+                      <i class=" icon_delete far fa-trash-alt "></i><%= button_to "Delete", bus_path(bus.id), method: "delete",  class: "delete", data: { confirm: "Are you sure you want to delete?" } %>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><a class="paginate_button previous disabled" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous">Previous</a><span><a class="paginate_button current" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0">2</a></span><a class="paginate_button next" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0" id="DataTables_Table_0_next">Next</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Teacher Table Area End Here -->
+</div>

@@ -1,0 +1,130 @@
+<div class="dashboard-content-one">
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area">
+    <h3>Library</h3>
+    <ul>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>Add New Teacher</li>
+    </ul>
+  </div>
+  <!-- Breadcubs Area End Here -->
+  <!-- Add New Teacher Area Start Here -->
+  <div class="card height-auto">
+    <div class="card-body">
+      <div class="heading-layout1">
+        <div class="item-title">
+          <h3>Add New Teacher</h3>
+        </div>
+        <div class="dropdown">
+          <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">...</a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="#"><i class="fas fa-times text-orange-red"></i>Close</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+          </div>
+        </div>
+      </div>
+      <%= form_with model: @teacher do |f| %>
+        <div class="row">
+          <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <%= f.label :name, "Teacher Name" %>
+            <%= f.text_field :name, required: true, class: "form-control" %>
+            <% if @teacher.errors.messages[:name].present? %>
+              <% @teacher.errors.messages[:name].each do |mess| %>
+                <span class="valid-mess"><%= mess %></span><br>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <%= f.label :address, "Address" %>
+            <%= f.text_field :address, required: true, class: "form-control" %>
+            <% if @teacher.errors.messages[:address].present? %>
+              <% @teacher.errors.messages[:address].each do |mess| %>
+                <span class="valid-mess"><%= mess %></span><br>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <%= f.label :gender, "Gender" %>
+            <%= f.text_field :gender, required: true, class: "form-control" %>
+            <% if @teacher.errors.messages[:gender].present? %>
+              <% @teacher.errors.messages[:gender].each do |mess| %>
+                <span class="valid-mess"><%= mess %></span><br>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <%= f.label :religion, "Religion" %>
+            <%= f.text_field :religion, required: true, class: "form-control" %>
+            <% if @teacher.errors.messages[:religion].present? %>
+              <% @teacher.errors.messages[:religion].each do |mess| %>
+                <span class="valid-mess"><%= mess %></span><br>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <%= f.label :phone, "Phone" %>
+            <%= f.text_field :phone, required: true, class: "form-control" %>
+            <% if @teacher.errors.messages[:phone].present? %>
+              <% @teacher.errors.messages[:phone].each do |mess| %>
+                <span class="valid-mess"><%= mess %></span><br>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <%= f.label :email, "Email" %>
+            <%= f.text_field :email, class: "form-control" %>
+            <% if @teacher.errors.messages[:email].present? %>
+              <% @teacher.errors.messages[:email].each do |mess| %>
+                <span class="valid-mess"><%= mess %></span><br>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <%= f.label :date_birth, "date_Birth" %>
+            <%= f.text_field :date_birth, required: true, class: "form-control" %>
+            <% if @teacher.errors.messages[:date_birth].present? %>
+              <% @teacher.errors.messages[:date_birth].each do |mess| %>
+                <span class="valid-mess"><%= mess %></span><br>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <%= f.label :national_id, "National_id" %>
+            <%= f.text_field :national_id, required: true, class: "form-control" %>
+            <% if @teacher.errors.messages[:national_id].present? %>
+              <% @teacher.errors.messages[:national_id].each do |mess| %>
+                <span class="valid-mess"><%= mess %></span><br>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group" data-select2-id="14">
+            <%= f.label :stage_id, "Name Stage" %>
+            <%= f.select("stage_id", Stage.all.map { |s| [s.name, s.id] }, {}, { class: "form-control select2 select2-container select2-container--default select2-container--below" }) %>
+            <% if @teacher.errors.messages[:stage_id].present? %>
+              <% @teacher.errors.messages[:stage_id].each do |mass| %>
+                <%= mass %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group" data-select2-id="14">
+            <%= f.label :subject_id, "Subject Name" %>
+            <%= f.select("subject_id", Subject.all.map { |p| [p.name, p.id] }, {}, { class: "form-control select2 select2-container select2-container--default select2-container--below" }) %>
+            <% if @teacher.errors.messages[:subject_id].present? %>
+              <% @teacher.errors.messages[:subject_id].each do |mass| %>
+                <%= mass %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-12 form-group mg-t-8">
+            <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+            <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <!-- Add New Teacher Area End Here -->
+</div>

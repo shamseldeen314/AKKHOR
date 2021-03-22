@@ -1,0 +1,149 @@
+<div class="dashboard-content-one">
+  <!-- Breadcubs Area Start Here -->
+  <div class="breadcrumbs-area">
+    <h3>students</h3>
+    <ul>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>Add New students</li>
+    </ul>
+  </div>
+  <!-- Breadcubs Area End Here -->
+  <!-- Add New Teacher Area Start Here -->
+  <div class="card height-auto">
+    <div class="card-body">
+      <div class="heading-layout1">
+        <div class="item-title">
+          <h3>Add New students</h3>
+        </div>
+        <div class="dropdown">
+          <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">...</a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="#"><i class="fas fa-times text-orange-red"></i>Close</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+          </div>
+        </div>
+      </div>
+      <%= form_with model: @student do |f| %>
+        <div class="row">
+          <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <%= f.label :code, " student_Code" %>
+            <%= f.text_field :code, class: "form-control" %>
+            <% if @student.errors.messages[:code].present? %>
+              <% @student.errors.messages[:code].each do |mass| %>
+                <%= mass %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <%= f.label :name, " Name" %>
+            <%= f.text_field :name, class: "form-control" %>
+            <% if @student.errors.messages[:name].present? %>
+              <% @student.errors.messages[:name].each do |mass| %>
+                <%= mass %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <%= f.label :address, "Address" %>
+            <%= f.text_field :address, class: "form-control" %>
+            <% if @student.errors.messages[:address].present? %>
+              <% @student.errors.messages[:address].each do |mass| %>
+                <%= mass %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group" >
+            <%= f.label :phone, "Phone Number" %>
+            <%= f.text_field :phone, class: "form-control" %>
+            <% if @student.errors.messages[:phone].present? %>
+              <% @student.errors.messages[:phone].each do |mass| %>
+                <%= mass %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group" data-select2-id="14">
+            <%= f.label :gender, "Gender" %>
+            <%= f.select("gender", Student::GENDERS, {}, { class: "form-control select2 select2-container select2-container--default select2-container--below" }) %>
+            <% if @student.errors.messages[:gender].present? %>
+              <% @student.errors.messages[:gender].each do |mass| %>
+                <%= mass %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group" data-select2-id="14">
+            <%= f.label :religion, "Religion" %>
+            <%= f.select("religion", Student::RELIGIONS, {}, { class: "form-control select2 select2-container select2-container--default select2-container--below" }) %>
+            <% if @student.errors.messages[:religion].present? %>
+              <% @student.errors.messages[:religion].each do |mass| %>
+                <%= mass %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group" data-select2-id="14">
+            <%= f.label :parent_id, "Parent Name" %>
+            <%= f.select("parent_id", Parent.all.map { |b| [b.name, b.id] }, {}, { class: "form-control select2 select2-container select2-container--default select2-container--below" }) %>
+            <% if @student.errors.messages[:parent_id].present? %>
+              <% @student.errors.messages[:parent_id].each do |mass| %>
+                <%= mass %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group" data-select2-id="14">
+            <%= f.label :stage_id, "Name Stage" %>
+            <%= f.select("stage_id", Stage.all.map { |s| [s.name, s.id] }, {}, { class: "form-control select2 select2-container select2-container--default select2-container--below" }) %>
+            <% if @student.errors.messages[:stage_id].present? %>
+              <% @student.errors.messages[:stage_id].each do |mass| %>
+                <%= mass %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group" data-select2-id="14">
+            <%= f.label :bus_id, "Bus number" %>
+            <%= f.select("bus_id", Bus.all.map { |b| [b.bus_number, b.id] }, {}, { class: "form-control select2 select2-container select2-container--default select2-container--below" }) %>
+            <% if @student.errors.messages[:bus_id].present? %>
+              <% @student.errors.messages[:bus_id].each do |mass| %>
+                <%= mass %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group" >
+            <%= f.label :email, "Email" %>
+            <%= f.text_field :email, class: "form-control" %>
+            <% if @student.errors.messages[:email].present? %>
+              <% @student.errors.messages[:email].each do |mass| %>
+                <%= mass %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12 form-group" >
+            <%= f.label :date_birth, "date_of_Birth" %>
+            <%= f.text_field :date_birth, class: "form-control" %>
+            <% if @student.errors.messages[:date_birth].present? %>
+              <% @student.errors.messages[:date_birth].each do |mass| %>
+                <%= mass %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-md-6 d-none d-xl-block">
+          </div>
+          <div class="col-lg-6 col-12 form-group">
+            <%= f.label :cv, "cv" %>
+            <%= f.text_area :cv, class: "textarea form-control" %>
+          </div>
+          <div class="col-lg-6 col-12 form-group mg-t-30">
+            <label class="text-dark-medium">Upload Student Photo (150px X 150px)</label>
+            <input type="file" class="form-control-file">
+          </div>
+          <div class="col-12 form-group mg-t-8">
+            <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+            <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <!-- Add New Teacher Area End Here -->
+</div>

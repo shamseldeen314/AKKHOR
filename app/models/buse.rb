@@ -1,0 +1,2 @@
+class Buse < ApplicationRecord
+end

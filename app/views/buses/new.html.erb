@@ -1,0 +1,71 @@
+<div class="dashboard-content-one">
+<!-- Breadcubs Area Start Here -->
+<div class="breadcrumbs-area">
+    <h3>Library</h3>
+    <ul>
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+        <li>Add New bus</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+<!-- Add New bus Area Start Here -->
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title">
+                <h3>Add New bus</h3>
+            </div>
+            <div class="dropdown">
+                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">...</a>
+
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#"><i class="fas fa-times text-orange-red"></i>Close</a>
+                    <a class="dropdown-item" href="#"><i class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
+                    <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+                </div>
+            </div>
+        </div>
+
+            <%= form_with model: @bus do |f| %>
+
+            <div class="row">
+
+                <div class="col-xl-3 col-lg-4 col-12 form-group">
+
+                <%= f.label :model, "Bus model" %>
+                <%= f.text_field :model, required: true, class: "form-control" %>
+                </div>
+                    <div class="col-xl-3 col-lg-4 col-12 form-group">
+
+                <%= f.label :driver, "Driver" %>
+                <%= f.text_field :driver, required: true, class: "form-control" %>
+                </div>
+                    <div class="col-xl-3 col-lg-4 col-12 form-group">
+
+                <%= f.label :bus_number, "Bus_Number" %>
+                <%= f.text_field :bus_number, required: true, class: "form-control" %>
+                </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-12 form-group">
+
+                <%= f.label :color, "Color" %>
+                <%= f.text_field :color, required: true, class: "form-control" %>
+                
+                </div>
+                <div class="col-12 form-group mg-t-8">
+                
+                    <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                    <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                </div>
+
+            </div>
+    
+
+            <% end %>
+    </div>
+</div>
+<!-- Add New bus Area End Here -->
+
+</div>
