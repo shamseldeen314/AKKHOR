@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def index
     @select_user = User.where(id: params[:selected_user]).first || User.first
+
     @users = User.all
   end
 
